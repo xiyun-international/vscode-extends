@@ -14,10 +14,26 @@
 	],
 	"main": "./out/extension.js",
 	"contributes": {
-		"commands": [{
-			"command": "extension.helloWorld",
-			"title": "Hello World"
-		}]
+		"commands": [
+			{
+				"command": "extension.helloWorld",
+				"title": "生成列表页"
+			}
+		],
+		"menus": {
+      "commandPalette": [
+        {
+          "command": "extension.helloWorld",
+          "when": "explorerResourceIsFolder"
+        }
+      ],
+      "explorer/context": [
+        {
+          "command": "extension.helloWorld",
+          "when": "explorerResourceIsFolder"
+        }
+      ]
+    }
 	},
 	"scripts": {
 		"vscode:prepublish": "yarn run compile",
