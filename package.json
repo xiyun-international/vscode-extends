@@ -10,26 +10,26 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:extension.helloWorld"
+    "onCommand:extension.xyGenerator"
   ],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "extension.helloWorld",
+        "command": "extension.xyGenerator",
         "title": "Generate List"
       }
     ],
     "menus": {
       "commandPalette": [
         {
-          "command": "extension.helloWorld",
+          "command": "extension.xyGenerator",
           "when": "explorerResourceIsFolder"
         }
       ],
       "explorer/context": [
         {
-          "command": "extension.helloWorld",
+          "command": "extension.xyGenerator",
           "when": "explorerResourceIsFolder"
         }
       ]
@@ -49,11 +49,15 @@
     "@types/vscode": "^1.40.0",
     "glob": "^7.1.5",
     "mocha": "^6.2.2",
-    "typescript": "^3.6.4",
     "tslint": "^5.20.0",
+    "typescript": "^3.6.4",
     "vscode-test": "^1.2.2"
   },
   "dependencies": {
-    "copy-dir": "^1.2.0"
+    "@types/fs-extra": "^8.0.1",
+    "copy-dir": "^1.2.0",
+    "fs-extra": "^8.1.0",
+    "fs-jetpack": "^2.2.3",
+    "ora": "^4.0.3"
   }
 }
