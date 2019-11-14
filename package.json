@@ -17,7 +17,7 @@
 		"commands": [
 			{
 				"command": "extension.helloWorld",
-				"title": "生成列表页"
+				"title": "Generate List"
 			}
 		],
 		"menus": {
