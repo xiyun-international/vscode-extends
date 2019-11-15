@@ -3,6 +3,7 @@
   "displayName": "xiyun",
   "description": "禧云生态 VSCode 扩展插件",
   "version": "0.0.1",
+  "homepage": "https://github.com/xiyun-international/vscode-extends",
   "engines": {
     "vscode": "^1.40.0"
   },
@@ -24,15 +25,18 @@
     "commands": [
       {
         "command": "extension.generator.list",
-        "title": "Generate XiYun List Template"
+        "title": "Generate XiYun List Template",
+        "group": "xiyun"
       },
       {
         "command": "extension.generator.create",
-        "title": "Generate XiYun Create Template"
+        "title": "Generate XiYun Create Template",
+        "group": "xiyun@1"
       },
       {
         "command": "extension.generator.detail",
-        "title": "Generate XiYun Detail Template"
+        "title": "Generate XiYun Detail Template",
+        "group": "xiyun@2"
       }
     ],
     "menus": {
