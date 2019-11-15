@@ -55,9 +55,6 @@
   },
   "dependencies": {
     "@types/fs-extra": "^8.0.1",
-    "copy-dir": "^1.2.0",
-    "fs-extra": "^8.1.0",
-    "fs-jetpack": "^2.2.3",
-    "ora": "^4.0.3"
+    "fs-extra": "^8.1.0"
   }
 }
