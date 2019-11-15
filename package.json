@@ -12,6 +12,11 @@
   "activationEvents": [
     "onCommand:extension.generator.list"
   ],
+  "files": [
+    "out",
+    "src",
+    "template"
+  ],
   "main": "./out/index.js",
   "contributes": {
     "commands": [

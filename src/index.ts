@@ -3,27 +3,15 @@ import * as vscode from "vscode";
 import { template } from "./getPaths";
 
 export function activate(context: vscode.ExtensionContext) {
-  context.subscriptions.push(vscode.commands.registerCommand(
-    "extension.generator.list",
-    uri => {
-      copy(template("list"), `${uri.path}/list`);
-    }
-  ));
+  addCommand("list", context);
+  addCommand("create", context);
+  addCommand("detail", context);
+}
 
-  context.subscriptions.push(vscode.commands.registerCommand(
-    "extension.generator.create",
-    uri => {
-      copy(template("create"), `${uri.path}/create`);
-    }
-  ));
-
-  context.subscriptions.push(vscode.commands.registerCommand(
-    "extension.generator.detail",
-    uri => {
-      copy(template("detail"), `${uri.path}/detail`);
-    }
-  ));
-
+function addCommand(command: string, context: vscode.ExtensionContext) {
+  context.subscriptions.push(vscode.commands.registerCommand(`extension.generator.${command}`, uri => {
+    copy(template(command), `${uri.path}/${command}`);
+  }));
 }
 
 export function deactivate() {}
