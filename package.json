@@ -7,7 +7,7 @@
   "homepage": "https://github.com/xiyun-international/vscode-extends",
   "repository": {
     "type": "git",
-    "url": "https://github.com/editorconfig/editorconfig-vscode.git"
+    "url": "https://github.com/xiyun-international/vscode-extends.git"
   },
   "publisher": "xiyun",
   "engines": {
