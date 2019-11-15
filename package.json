@@ -17,9 +17,11 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:extension.generator.list",
-    "onCommand:extension.generator.create",
-    "onCommand:extension.generator.detail"
+    "onCommand:extension.generator.template.antd.list",
+    "onCommand:extension.generator.template.antd.create",
+    "onCommand:extension.generator.template.antd.detail",
+    "onCommand:extension.generator.config.yarnrc",
+    "onCommand:extension.generator.config.editorcofnig"
   ],
   "files": [
     "out",
@@ -30,33 +32,51 @@
   "contributes": {
     "commands": [
       {
-        "command": "extension.generator.list",
+        "command": "extension.generator.template.antd.list",
         "title": "Generate XiYun List Template",
         "group": "xiyun"
       },
       {
-        "command": "extension.generator.create",
+        "command": "extension.generator.template.antd.create",
         "title": "Generate XiYun Create Template",
         "group": "xiyun@1"
       },
       {
-        "command": "extension.generator.detail",
+        "command": "extension.generator.template.antd.detail",
         "title": "Generate XiYun Detail Template",
         "group": "xiyun@2"
+      },
+      {
+        "command": "extension.generator.config.yarnrc",
+        "title": "Generate XiYun Config .yarnrc",
+        "group": "xiyun@3"
+      },
+      {
+        "command": "extension.generator.config.editorconfig",
+        "title": "Generate XiYun Config .editorconfig",
+        "group": "xiyun@4"
       }
     ],
     "menus": {
       "explorer/context": [
         {
-          "command": "extension.generator.list",
+          "command": "extension.generator.template.antd.list",
           "when": "explorerResourceIsFolder"
         },
         {
-          "command": "extension.generator.create",
+          "command": "extension.generator.template.antd.create",
           "when": "explorerResourceIsFolder"
         },
         {
-          "command": "extension.generator.detail",
+          "command": "extension.generator.template.antd.detail",
+          "when": "explorerResourceIsFolder"
+        },
+        {
+          "command": "extension.generator.config.yarnrc",
+          "when": "explorerResourceIsFolder"
+        },
+        {
+          "command": "extension.generator.config.editorconfig",
           "when": "explorerResourceIsFolder"
         }
       ]
