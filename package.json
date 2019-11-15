@@ -10,7 +10,9 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:extension.generator.list"
+    "onCommand:extension.generator.list",
+    "onCommand:extension.generator.create",
+    "onCommand:extension.generator.detail"
   ],
   "files": [
     "out",
