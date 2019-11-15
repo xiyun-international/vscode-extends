@@ -10,26 +10,36 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:extension.xyGenerator"
+    "onCommand:extension.generator.list"
   ],
-  "main": "./out/extension.js",
+  "main": "./out/index.js",
   "contributes": {
     "commands": [
       {
-        "command": "extension.xyGenerator",
-        "title": "Generate List"
+        "command": "extension.generator.list",
+        "title": "Generate XiYun List Template"
+      },
+      {
+        "command": "extension.generator.create",
+        "title": "Generate XiYun Create Template"
+      },
+      {
+        "command": "extension.generator.detail",
+        "title": "Generate XiYun Detail Template"
       }
     ],
     "menus": {
-      "commandPalette": [
-        {
-          "command": "extension.xyGenerator",
-          "when": "explorerResourceIsFolder"
-        }
-      ],
       "explorer/context": [
         {
-          "command": "extension.xyGenerator",
+          "command": "extension.generator.list",
+          "when": "explorerResourceIsFolder"
+        },
+        {
+          "command": "extension.generator.create",
+          "when": "explorerResourceIsFolder"
+        },
+        {
+          "command": "extension.generator.detail",
           "when": "explorerResourceIsFolder"
         }
       ]
