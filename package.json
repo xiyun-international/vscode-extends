@@ -4,6 +4,7 @@
   "description": "禧云生态 VSCode 扩展插件",
   "version": "0.0.1",
   "homepage": "https://github.com/xiyun-international/vscode-extends",
+  "publisher": "xiyun",
   "engines": {
     "vscode": "^1.40.0"
   },
