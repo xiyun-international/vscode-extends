@@ -2,8 +2,13 @@
   "name": "xiyun",
   "displayName": "xiyun",
   "description": "禧云生态 VSCode 扩展插件",
-  "version": "0.0.1",
+  "version": "0.0.2",
+  "icon": "xiyun_icon.jpg",
   "homepage": "https://github.com/xiyun-international/vscode-extends",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/editorconfig/editorconfig-vscode.git"
+  },
   "publisher": "xiyun",
   "engines": {
     "vscode": "^1.40.0"
