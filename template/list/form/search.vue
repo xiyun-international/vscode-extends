@@ -1,13 +1,13 @@
 <template>
   <a-form class="search" :form="form" @submit="handleSearch">
     <a-row :gutter="20">
-      <a-col v-bind="searchCol">
-        <a-form-item label="订单号" v-bind="searchItem">
+      <a-col v-bind="Layout.searchCol">
+        <a-form-item label="订单号" v-bind="Layout.searchItem">
           <a-input v-decorator="['deliverId']" placeholder="请输入订单号" />
         </a-form-item>
       </a-col>
-      <a-col v-bind="searchCol">
-        <a-form-item label="寄件时间" v-bind="searchItem">
+      <a-col v-bind="Layout.searchCol">
+        <a-form-item label="寄件时间" v-bind="Layout.searchItem">
           <a-date-picker
             v-decorator="['time']"
             placeholder="请选择寄件时间"
@@ -15,8 +15,8 @@
           ></a-date-picker>
         </a-form-item>
       </a-col>
-      <a-col v-bind="searchCol">
-        <a-form-item label="发货状态" v-bind="searchItem">
+      <a-col v-bind="Layout.searchCol">
+        <a-form-item label="发货状态" v-bind="Layout.searchItem">
           <a-select v-decorator="['status']" placeholder="请选择">
             <a-select-option value="">全部</a-select-option>
             <a-select-option :value="1">未发货</a-select-option>
@@ -37,22 +37,14 @@
 </template>
 
 <script>
+import * as Layout from '@/utils/form';
+
 export default {
   name: 'search-form',
   data() {
     return {
+      Layout,
       form: this.$form.createForm(this),
-      searchCol: {
-        span: 8,
-      },
-      searchItem: {
-        labelCol: {
-          span: 6,
-        },
-        wrapperCol: {
-          span: 18,
-        },
-      },
     };
   },
   methods: {
@@ -61,13 +53,13 @@ export default {
      */
     handleSearch(e) {
       e.preventDefault();
-      this.$emit('onSearch', this.form.getFieldsValue());
+      this.$emit('onSearch');
     },
 
     // 点击重置
     handleFormReset() {
       this.form.resetFields();
-      this.$emit('onSearch', {});
+      this.$emit('onSearch');
     },
   },
 };
