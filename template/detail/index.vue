@@ -11,7 +11,7 @@
     <a-form :form="form">
       <a-row>
         <a-col v-bind="searchCol">
-          <a-form-item v-bind="searchItem" label="编号：">
+          <a-form-item v-bind="searchItem" label="编号：" props="apply_name">
             {{ form.apply_name }}
           </a-form-item>
         </a-col>
@@ -31,7 +31,7 @@
     <a-form :form="form">
       <a-row>
         <a-col v-bind="searchCol">
-          <a-form-item v-bind="searchItem" label="申请人：">
+          <a-form-item v-bind="searchItem" label="申请人：" props="apply_name">
             {{ form.apply_name }}
           </a-form-item>
         </a-col>
@@ -56,10 +56,19 @@
 </template>
 
 <script>
+/**
+ * 详情页路由
+ * @route('biz/detail')
+ */
 export default {
   name: 'deliver-detail',
   data() {
     return {
+      breadcrumb: [
+        { name: '用户管理' },
+        { name: '用户列表', path: '/biz/list' },
+        { name: '用户详情' },
+      ],
       form: {
         apply_name: '胡强强',
         shop_name: '商户',
@@ -72,10 +81,10 @@ export default {
       },
       searchItem: {
         labelCol: {
-          span: 4,
+          span: 6,
         },
         wrapperCol: {
-          span: 20,
+          span: 18,
         },
       },
     };
@@ -85,11 +94,11 @@ export default {
   },
   methods: {
     getDetail() {
-      this.$post('/detail').then(() => {
-        this.$message({
-          type: 'success',
-        });
-      });
+      // this.$post('/detail').then(() => {
+      //   this.$message({
+      //     type: 'success',
+      //   });
+      // });
     },
   },
 };
