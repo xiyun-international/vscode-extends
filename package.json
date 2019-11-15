@@ -2,8 +2,8 @@
   "name": "xiyun",
   "displayName": "xiyun",
   "description": "禧云生态 VSCode 扩展插件",
-  "version": "0.0.2",
-  "icon": "xiyun_icon.jpg",
+  "version": "0.0.3",
+  "icon": "xiyun_icon.png",
   "homepage": "https://github.com/xiyun-international/vscode-extends",
   "repository": {
     "type": "git",
