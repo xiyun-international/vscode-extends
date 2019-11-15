@@ -17,11 +17,11 @@
         </template>
       </a-table>
       <xy-pagination
-          :current-page="pagination.page"
-          :page-size="pagination.pageSize"
-          :total="pagination.totalCount"
-          @current-change="handleCurrentChange"
-          @size-change="handleSizeChange"
+        :current-page="pagination.page"
+        :page-size="pagination.pageSize"
+        :total="pagination.totalCount"
+        @current-change="handleCurrentChange"
+        @size-change="handleSizeChange"
       />
     </a-row>
   </xy-context>
