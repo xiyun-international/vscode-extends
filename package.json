@@ -33,51 +33,51 @@
     "commands": [
       {
         "command": "extension.generator.template.antd.list",
-        "title": "Generate XiYun List Template",
-        "group": "xiyun"
+        "title": "Generate XiYun List Template"
       },
       {
         "command": "extension.generator.template.antd.create",
-        "title": "Generate XiYun Create Template",
-        "group": "xiyun@1"
+        "title": "Generate XiYun Create Template"
       },
       {
         "command": "extension.generator.template.antd.detail",
-        "title": "Generate XiYun Detail Template",
-        "group": "xiyun@2"
+        "title": "Generate XiYun Detail Template"
       },
       {
         "command": "extension.generator.config.yarnrc",
-        "title": "Generate XiYun Config .yarnrc",
-        "group": "xiyun@3"
+        "title": "Generate XiYun Config .yarnrc"
       },
       {
         "command": "extension.generator.config.editorconfig",
-        "title": "Generate XiYun Config .editorconfig",
-        "group": "xiyun@4"
+        "title": "Generate XiYun Config .editorconfig"
       }
     ],
     "menus": {
       "explorer/context": [
         {
           "command": "extension.generator.template.antd.list",
-          "when": "explorerResourceIsFolder"
+          "when": "explorerResourceIsFolder",
+          "group": "xiyun"
         },
         {
           "command": "extension.generator.template.antd.create",
-          "when": "explorerResourceIsFolder"
+          "when": "explorerResourceIsFolder",
+          "group": "xiyun@1"
         },
         {
           "command": "extension.generator.template.antd.detail",
-          "when": "explorerResourceIsFolder"
+          "when": "explorerResourceIsFolder",
+          "group": "xiyun@2"
         },
         {
           "command": "extension.generator.config.yarnrc",
-          "when": "explorerResourceIsFolder"
+          "when": "explorerResourceIsFolder",
+          "group": "setting"
         },
         {
           "command": "extension.generator.config.editorconfig",
-          "when": "explorerResourceIsFolder"
+          "when": "explorerResourceIsFolder",
+          "group": "setting@1"
         }
       ]
     }

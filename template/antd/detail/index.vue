@@ -10,18 +10,18 @@
     <xy-title>用户信息</xy-title>
     <a-form :form="form">
       <a-row>
-        <a-col v-bind="searchCol">
-          <a-form-item v-bind="searchItem" label="编号：" props="apply_name">
+        <a-col v-bind="formItemCol">
+          <a-form-item v-bind="Layout.formItemLayout" label="编号：" props="apply_name">
             {{ form.apply_name }}
           </a-form-item>
         </a-col>
-        <a-col v-bind="searchCol">
-          <a-form-item v-bind="searchItem" label="时间：">
+        <a-col v-bind="formItemCol">
+          <a-form-item v-bind="Layout.formItemLayout" label="时间：">
             {{ form.shop_name }}
           </a-form-item>
         </a-col>
-        <a-col v-bind="searchCol">
-          <a-form-item v-bind="searchItem" label="状态">
+        <a-col v-bind="formItemCol">
+          <a-form-item v-bind="Layout.formItemLayout" label="状态">
             {{ form.project_name }}
           </a-form-item>
         </a-col>
@@ -30,23 +30,23 @@
     <xy-title>收货信息</xy-title>
     <a-form :form="form">
       <a-row>
-        <a-col v-bind="searchCol">
-          <a-form-item v-bind="searchItem" label="申请人：" props="apply_name">
+        <a-col v-bind="formItemCol">
+          <a-form-item v-bind="Layout.formItemLayout" label="申请人：" props="apply_name">
             {{ form.apply_name }}
           </a-form-item>
         </a-col>
-        <a-col v-bind="searchCol">
-          <a-form-item v-bind="searchItem" label="商户名称：">
+        <a-col v-bind="formItemCol">
+          <a-form-item v-bind="Layout.formItemLayout" label="商户名称：">
             {{ form.shop_name }}
           </a-form-item>
         </a-col>
-        <a-col v-bind="searchCol">
-          <a-form-item v-bind="searchItem" label="项目名称：">
+        <a-col v-bind="formItemCol">
+          <a-form-item v-bind="Layout.formItemLayout" label="项目名称：">
             {{ form.project_name }}
           </a-form-item>
         </a-col>
-        <a-col v-bind="searchCol">
-          <a-form-item v-bind="searchItem" label="备注：">
+        <a-col v-bind="formItemCol">
+          <a-form-item v-bind="Layout.formItemLayout" label="备注：">
             {{ form.remark }}
           </a-form-item>
         </a-col>
@@ -60,6 +60,9 @@
  * 详情页路由
  * @route('biz/detail')
  */
+
+import * as Layout from '@/utils/form';
+
 export default {
   name: 'deliver-detail',
   data() {
@@ -76,17 +79,10 @@ export default {
         remark: '备注',
         deliver_num: 1111,
       },
-      searchCol: {
+      formItemCol: {
         span: 8,
       },
-      searchItem: {
-        labelCol: {
-          span: 6,
-        },
-        wrapperCol: {
-          span: 18,
-        },
-      },
+      Layout,
     };
   },
   created() {
@@ -94,11 +90,11 @@ export default {
   },
   methods: {
     getDetail() {
-      // this.$post('/detail').then(() => {
-      //   this.$message({
-      //     type: 'success',
-      //   });
-      // });
+      this.$post('/v1/biz/detail').then(() => {
+        this.$message({
+          type: 'success',
+        });
+      });
     },
   },
 };
