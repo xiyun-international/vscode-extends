@@ -1,5 +1,8 @@
 <template>
   <xy-context :breadcrumb="[{ name: '商品管理', path: 'biz/list' }, { name: '商品列表' }]" title="商品列表">
+    <template slot="right">
+        <a-button type="primary" @click="handleCreate">创建</a-button>
+      </template>
     <search-form ref="search" @onSearch="onSearch"></search-form>
     <a-row>
       <a-table
@@ -89,6 +92,9 @@ export default {
         this.listData = res.resultObject.listObject;
         this.pagination.totalCount = res.resultObject.totalItems;
       });
+    },
+    handleCreate() {
+      this.$router.replace("/biz/create");
     },
   },
 };
