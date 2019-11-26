@@ -20,6 +20,9 @@
     "onCommand:extension.generator.template.antd.list",
     "onCommand:extension.generator.template.antd.create",
     "onCommand:extension.generator.template.antd.detail",
+    "onCommand:extension.generator.template.ele.list",
+    "onCommand:extension.generator.template.ele.create",
+    "onCommand:extension.generator.template.ele.edit",
     "onCommand:extension.generator.config.yarnrc",
     "onCommand:extension.generator.config.editorcofnig"
   ],
@@ -33,15 +36,27 @@
     "commands": [
       {
         "command": "extension.generator.template.antd.list",
-        "title": "Generate XiYun List Template"
+        "title": "Generate XiYun Antd List Template"
       },
       {
         "command": "extension.generator.template.antd.create",
-        "title": "Generate XiYun Create Template"
+        "title": "Generate XiYun Antd Create Template"
       },
       {
         "command": "extension.generator.template.antd.detail",
-        "title": "Generate XiYun Detail Template"
+        "title": "Generate XiYun Antd Detail Template"
+      },
+      {
+        "command": "extension.generator.template.ele.list",
+        "title": "Generate XiYun ele List Template"
+      },
+      {
+        "command": "extension.generator.template.ele.create",
+        "title": "Generate XiYun ele Create Template"
+      },
+      {
+        "command": "extension.generator.template.ele.edit",
+        "title": "Generate XiYun ele Edit Template"
       },
       {
         "command": "extension.generator.config.yarnrc",
@@ -68,6 +83,21 @@
           "command": "extension.generator.template.antd.detail",
           "when": "explorerResourceIsFolder",
           "group": "xiyun@2"
+        },
+        {
+          "command": "extension.generator.template.ele.list",
+          "when": "explorerResourceIsFolder",
+          "group": "xiyun@3"
+        },
+        {
+          "command": "extension.generator.template.ele.create",
+          "when": "explorerResourceIsFolder",
+          "group": "xiyun@3"
+        },
+        {
+          "command": "extension.generator.template.ele.edit",
+          "when": "explorerResourceIsFolder",
+          "group": "xiyun@3"
         },
         {
           "command": "extension.generator.config.yarnrc",

@@ -6,6 +6,9 @@ export function activate(context: vscode.ExtensionContext) {
   copyUI("antd", "list", context);
   copyUI("antd", "create", context);
   copyUI("antd", "detail", context);
+  copyUI("ele", "list", context);
+  copyUI("ele", "create", context);
+  copyUI("ele", "edit", context);
   copyConfig("yarnrc", context);
   copyConfig("editorconfig", context);
 }
