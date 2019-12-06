@@ -110,6 +110,17 @@
           "group": "setting@1"
         }
       ]
+    },
+    "configuration": {
+      "type": "object",
+      "title": "禧云 VSCode",
+      "properties": {
+        "xy.template": {
+          "type": "string",
+          "default": "antd",
+          "description": "项目模板，默认为 antd 可选为 ele"
+        }
+      }
     }
   },
   "scripts": {

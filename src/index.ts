@@ -1,14 +1,13 @@
-
 import * as vscode from "vscode";
-import { copyUI, copyConfig } from './copy';
+import { copyUI, copyConfig } from "./copy";
 
 export function activate(context: vscode.ExtensionContext) {
-  copyUI("antd", "list", context);
-  copyUI("antd", "create", context);
-  copyUI("antd", "detail", context);
-  copyUI("ele", "list", context);
-  copyUI("ele", "create", context);
-  copyUI("ele", "edit", context);
+  const template = "" + vscode.workspace.getConfiguration().get("xy.template");
+
+  copyUI(template, "list", context);
+  copyUI(template, "create", context);
+  copyUI(template, "detail", context);
+
   copyConfig("yarnrc", context);
   copyConfig("editorconfig", context);
 }
