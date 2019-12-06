@@ -154,8 +154,5 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-.el-button--default {
-  background: #f7f7f7;
-  color: #606266;
-}
+
 </style>

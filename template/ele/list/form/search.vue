@@ -69,8 +69,5 @@ export default {
 };
 </script>
 <style scoped>
-.collect {
-  display: inline-block;
-  width: 40px;
-}
+
 </style>
