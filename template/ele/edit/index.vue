@@ -1,9 +1,9 @@
 <template>
   <div>
-    <el-dialog width="50%" title="添加会员" :visible.sync="visible">
+    <el-dialog width="50%" title="编辑会员" :visible.sync="visible" :before-close="onClose">
       <el-form label-width="120px" :model="form" :rules="rules" ref="form">
         <el-form-item label="会员姓名" prop="name">
-          <el-input v-model="form.name" :maxlength="32" placeholder="请输入32个字以内的会员姓名"></el-input>
+          <el-input v-model="form.name" :maxlength="32" placeholder="请输入32个字以内的会员姓名" />
         </el-form-item>
 
         <el-form-item label="证件类型" prop="cardType">
@@ -37,40 +37,58 @@
 </template>
 
 <script>
-import rules from "./rules";
+import rules from "../dialog/rules";
 
 export default {
+  name: 'Edit',
+  props: {
+    id: {
+      type: String,
+      default: '',
+    },
+  },
   data() {
     return {
       visible: false,
       isLoading: false,
+      formId: '',
       form: {},
-      rules: rules(this, "create")
+      rules: rules(this, "edit")
     };
   },
+  mounted() {
+    this.formId = this.id;
+    this.getInfo();
+  },
   methods: {
-    /**
-     * 确定
-     */
-    onSubmit() {
-      this.$refs.form.validate(valid => {
-        if (valid) {
-          this.isLoading = true;
-          this.post("/v1/member/createMember", this.form).then(() => {
-            this.$message({
-              type: "success",
-              message: "添加会员成功"
-            });
-            this.isLoading = false;
-            this.close();
-          });
-        }
+    // 获取详情信息
+    getInfo(){
+      this.isLoading = true;
+      this.post('/v1/member/info', { id: this.formId }).then(res => {
+        this.form = res.bizContent.data;
+        this.isLoading = false;
       });
     },
 
-    /**
-     * 关闭对话框
-     */
+    // 确定
+    onSubmit() {
+      this.$refs.form.validate(valid => {
+        if (!valid)  return;
+        this.isLoading = true;
+        this.post("/v1/member/update", this.form).then(() => {
+          this.$message({
+            type: "success",
+            message: "编辑成功"
+          });
+          this.isLoading = false;
+          this.close();
+        }).catch(()=> {
+          this.isLoading = false;
+        })
+      });
+    },
+
+    // 关闭对话框
     onClose() {
       this.visible = false;
     }
@@ -79,4 +97,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
 </style>

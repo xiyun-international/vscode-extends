@@ -4,7 +4,7 @@
 
     <!-- 搜索 -->
     <xy-wrapper>
-      <search ref="search" @onSearch="onSearch"></search>
+      <search ref="search" @onSearch="onSearch" />
     </xy-wrapper>
 
     <!-- 功能按钮 -->
@@ -22,9 +22,9 @@
         border
         tooltip-effect="dark"
       >
-        <el-table-column prop="sno" label="会员编号" min-width="80"></el-table-column>
-        <el-table-column prop="name" label="会员姓名" min-width="80"></el-table-column>
-        <el-table-column prop="orgStr" label="组织架构" min-width="80"></el-table-column>
+        <el-table-column prop="sno" label="会员编号" min-width="80" />
+        <el-table-column prop="name" label="会员姓名" min-width="80" />
+        <el-table-column prop="orgStr" label="组织架构" min-width="80" />
         <el-table-column label="操作" min-width="140" align="center">
           <template slot-scope="scope">
             <el-button type="text" size="small" @click="onDetail(scope.row.memberId)">查看详情</el-button>
@@ -42,8 +42,7 @@
           :page-size="paginate.pageSize"
           layout="total, sizes, prev, pager, next, jumper"
           :total="paginate.total"
-        >
-        </el-pagination>
+         />
       </div>
     </xy-wrapper>
   </div>
@@ -97,9 +96,7 @@ export default {
       });
     },
 
-    /**
-     * 创建
-     */
+    // 创建
     onCreate() {
       this.$dialog(Create, {
         events: {
@@ -110,23 +107,17 @@ export default {
       });
     },
 
-    /**
-     * 详情页
-     */
+    // 详情页
     onDetail() {
 
     },
 
-    /**
-     * 导出
-     */
+    // 导出
     onExport() {
       window.open(download('/v1/member/export', this.form), '_blank');
     },
 
-    /**
-     * 搜索
-     */
+    // 搜索
     onSearch() {
       this.paginate.currentPage = 1;
       this.refreshList();

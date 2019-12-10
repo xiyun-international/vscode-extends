@@ -23,6 +23,7 @@
     "onCommand:extension.generator.template.ele.list",
     "onCommand:extension.generator.template.ele.create",
     "onCommand:extension.generator.template.ele.edit",
+    "onCommand:extension.generator.template.ele.detail",
     "onCommand:extension.generator.config.yarnrc",
     "onCommand:extension.generator.config.editorcofnig"
   ],
@@ -59,6 +60,10 @@
         "title": "Generate XiYun ele Edit Template"
       },
       {
+        "command": "extension.generator.template.ele.detail",
+        "title": "Generate XiYun ele Detail Template"
+      },
+      {
         "command": "extension.generator.config.yarnrc",
         "title": "Generate XiYun Config .yarnrc"
       },
@@ -92,12 +97,17 @@
         {
           "command": "extension.generator.template.ele.create",
           "when": "explorerResourceIsFolder",
-          "group": "xiyun@3"
+          "group": "xiyun@4"
         },
         {
           "command": "extension.generator.template.ele.edit",
           "when": "explorerResourceIsFolder",
-          "group": "xiyun@3"
+          "group": "xiyun@5"
+        },
+        {
+          "command": "extension.generator.template.ele.detail",
+          "when": "explorerResourceIsFolder",
+          "group": "xiyun@6"
         },
         {
           "command": "extension.generator.config.yarnrc",

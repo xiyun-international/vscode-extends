@@ -8,7 +8,7 @@
               v-model="form.searchKey"
               :maxlength="60"
               placeholder="请输入会员名称/编号/手机号/证件号码"
-            ></el-input>
+            />
           </el-form-item>
         </el-col>
 
@@ -33,7 +33,7 @@
               v-model="form.name"
               :maxlength="60"
               placeholder="姓名"
-            ></el-input>
+            />
           </el-form-item>
         </el-col>
       </el-row>
