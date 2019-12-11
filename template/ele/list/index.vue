@@ -10,7 +10,7 @@
     <!-- 功能按钮 -->
     <div class="t-MT24">
       <el-button @click="onCreate" type="primary">添加会员</el-button>
-      <el-button @click="onExport">导出</el-button>
+      <el-button @click="onExport" type="primary">导出</el-button>
     </div>
 
     <xy-wrapper class="t-MT24">
@@ -27,8 +27,11 @@
         <el-table-column prop="orgStr" label="组织架构" min-width="80" />
         <el-table-column label="操作" min-width="140" align="center">
           <template slot-scope="scope">
+            <el-button type="text" size="small" @click="onEdit(scope.row.memberId)">编辑</el-button>
+            <span>|</span>
             <el-button type="text" size="small" @click="onDetail(scope.row.memberId)">查看详情</el-button>
             <span>|</span>
+            <el-button type="text" size="small" @click="onDelete(scope.row.memberId)">删除</el-button>
           </template>
         </el-table-column>
       </el-table>
@@ -51,8 +54,10 @@
 <script>
 import { download } from '@/tools/file';
 
-import Search from './form/search.vue';
-import Create from './dialog/create.vue';
+import Search from './search.vue';
+import Create from './dialogs/create.vue';
+import Edit from './dialogs/edit.vue';
+import Detail from './dialogs/detail.vue';
 
 /**
  * 会员中心-会员管理
@@ -101,15 +106,52 @@ export default {
       this.$dialog(Create, {
         events: {
           onSuccess() {
-            this.refreshList();
+            this.getList();
           },
         },
       });
     },
 
-    // 详情页
-    onDetail() {
+    // 编辑
+    onEdit(id) {
+      this.$dialog(Edit, {
+        props: { id },
+        events: {
+          onSuccess() {
+            this.getList();
+          },
+        },
+      });
+    },
 
+    // 详情
+    onDetail(id) {
+      this.$dialog(Detail, {
+        props: { id },
+      });
+    },
+
+    // 删除
+    onDelete(memberId) {
+      this.$msgbox({
+        title: '',
+        message: '您确定删除此会员吗？',
+        confirmButtonText: '确定',
+        showCancelButton: true,
+        cancelButtonText: '取消',
+        type: 'warning',
+      }).then(() => {
+          this.post('/v1/member/updateStatus', {
+            status: 2,
+            memberId,
+          }).then(res => {
+            this.$message({ 
+              type: 'success', 
+              message: res.message,
+            });
+            this.getList();
+          });
+      }).catch(() => {});
     },
 
     // 导出
@@ -120,7 +162,7 @@ export default {
     // 搜索
     onSearch() {
       this.paginate.currentPage = 1;
-      this.refreshList();
+      this.getList();
     },
 
     /**
@@ -129,7 +171,7 @@ export default {
      */
     handleCurrentChange(currentPage) {
       this.paginate.currentPage = currentPage;
-      this.refreshList();
+      this.getList();
     },
 
     /**
@@ -139,7 +181,7 @@ export default {
     handleSizeChange(pageSize) {
       this.paginate.currentPage = 1;
       this.paginate.pageSize = pageSize;
-      this.refreshList();
+      this.getList();
     },
   },
 };

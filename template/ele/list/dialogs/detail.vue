@@ -11,7 +11,7 @@
         </el-form-item>
 
         <el-form-item label="会员分类"> 
-          {{ form.type }}
+          {{ form.typeStr }}
         </el-form-item>
       </el-form>
     </el-dialog>
@@ -38,13 +38,13 @@ export default {
     filterCardType(data){
       let type;
       switch (data) {
-        case '1':
+        case 1:
           type = '身份证';
           break;
-        case '2':
+        case 2:
           type = '港澳台证';
           break;
-        case '3':
+        case 3:
           type = '外籍护照';
           break;
         default: 
@@ -61,16 +61,17 @@ export default {
     // 获取详情信息
     getInfo(){
       this.isLoading = true;
-      this.post('/v1/member/info', { id: this.formId }).then(res => {
-        this.form = res.bizContent.data;
+      this.post('/v1/member/detail', { memberId: this.formId }).then(res => {
+        this.form = res.bizContent;
       });
+      this.isLoading = false;
     },
 
     // 关闭对话框
     onClose() {
       this.visible = false;
-    }
-  }
+    },
+  },
 };
 </script>
 

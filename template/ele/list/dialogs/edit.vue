@@ -1,6 +1,6 @@
 <template>
   <div>
-    <el-dialog width="50%" title="添加会员" :visible.sync="visible">
+    <el-dialog width="50%" title="编辑会员" :visible.sync="visible" :before-close="onClose">
       <el-form label-width="120px" :model="form" :rules="rules" ref="form">
         <el-form-item label="会员姓名" prop="name">
           <el-input v-model="form.name" :maxlength="32" placeholder="请输入32个字以内的会员姓名" />
@@ -37,40 +37,61 @@
 </template>
 
 <script>
-import rules from "../dialog/rules";
+import rules from "./rules";
 
 export default {
+  name: 'Edit',
+  props: {
+    id: {
+      type: String,
+      default: '',
+    },
+  },
   data() {
     return {
       visible: false,
       isLoading: false,
+      formId: '',
       form: {},
-      rules: rules(this, "create")
+      rules: rules(this, "edit"),
     };
   },
+  mounted() {
+    this.formId = this.id;
+    this.getInfo();
+  },
   methods: {
+    // 获取详情信息
+    getInfo(){
+      this.isLoading = true;
+      this.post('/v1/member/info', { memberId: this.formId }).then(res => {
+        this.form = res.bizContent;
+      });
+      this.isLoading = false;
+    },
+
     // 确定
     onSubmit() {
       this.$refs.form.validate(valid => {
-        if (valid) {
-          this.isLoading = true;
-          this.post("/v1/member/createMember", this.form).then(() => {
-            this.$message({
-              type: "success",
-              message: "添加会员成功"
-            });
-            this.isLoading = false;
-            this.close();
+        if (!valid)  return;
+        this.isLoading = true;
+        this.post("/v1/member/update", this.form).then(() => {
+          this.$message({
+            type: "success",
+            message: "编辑成功",
           });
-        }
+          this.onClose();
+          this.$emit('onSuccess');
+        });
+        this.isLoading = false;
       });
     },
 
     // 关闭对话框
     onClose() {
       this.visible = false;
-    }
-  }
+    },
+  },
 };
 </script>
 

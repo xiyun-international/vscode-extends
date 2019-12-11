@@ -21,9 +21,6 @@
     "onCommand:extension.generator.template.antd.create",
     "onCommand:extension.generator.template.antd.detail",
     "onCommand:extension.generator.template.ele.list",
-    "onCommand:extension.generator.template.ele.create",
-    "onCommand:extension.generator.template.ele.edit",
-    "onCommand:extension.generator.template.ele.detail",
     "onCommand:extension.generator.config.yarnrc",
     "onCommand:extension.generator.config.editorcofnig"
   ],
@@ -50,18 +47,6 @@
       {
         "command": "extension.generator.template.ele.list",
         "title": "Generate XiYun ele List Template"
-      },
-      {
-        "command": "extension.generator.template.ele.create",
-        "title": "Generate XiYun ele Create Template"
-      },
-      {
-        "command": "extension.generator.template.ele.edit",
-        "title": "Generate XiYun ele Edit Template"
-      },
-      {
-        "command": "extension.generator.template.ele.detail",
-        "title": "Generate XiYun ele Detail Template"
       },
       {
         "command": "extension.generator.config.yarnrc",
@@ -93,21 +78,6 @@
           "command": "extension.generator.template.ele.list",
           "when": "explorerResourceIsFolder",
           "group": "xiyun@3"
-        },
-        {
-          "command": "extension.generator.template.ele.create",
-          "when": "explorerResourceIsFolder",
-          "group": "xiyun@4"
-        },
-        {
-          "command": "extension.generator.template.ele.edit",
-          "when": "explorerResourceIsFolder",
-          "group": "xiyun@5"
-        },
-        {
-          "command": "extension.generator.template.ele.detail",
-          "when": "explorerResourceIsFolder",
-          "group": "xiyun@6"
         },
         {
           "command": "extension.generator.config.yarnrc",
