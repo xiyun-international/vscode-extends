@@ -1,0 +1,45 @@
+{
+  "post": {
+    "prefix": "post",
+    "description": "禧云 post",
+    "body": [
+      "this.post(\"$1\", params).then(res => {",
+      "  this.tableData = res.bizContent.resultList",
+      "  this.paginate.total = res.bizContent.totalCount",
+      "  this.emptyText = this.tableData.length === 0 ? \"暂无数据\" : \"\"",
+      "});",
+      ""
+    ]
+  },
+  "postCatch": {
+    "prefix": "postCatch",
+    "description": "禧云 post + catch",
+    "body": [
+      "this.post(\"$1\", params).then(res => {",
+      "  this.tableData = res.bizContent.resultList",
+      "  this.paginate.total = res.bizContent.totalCount",
+      "  this.emptyText = this.tableData.length === 0 ? \"暂无数据\" : \"\"",
+      "}).catch(e => {",
+      "  // noop",
+      "  $2",
+      "});"
+    ]
+  },
+  "dialog": {
+    "prefix": "dialog",
+    "description": "禧云 dialog",
+    "body": [
+      "this.\\$dialog($1, {",
+      "  data: {",
+      "    $2",
+      "  },",
+      "  events: {",
+      "    $3",
+      "  },",
+      "  callback() {",
+      "    $4",
+      "  },",
+      "});"
+    ]
+  }
+}
